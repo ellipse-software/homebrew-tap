@@ -1,28 +1,28 @@
 class Bast < Formula
   desc "Browse SSH hosts, manage keys, and connect from the terminal"
   homepage "https://bast.sh"
-  version "0.4.0"
+  version "0.4.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.4.0/bast_0.4.0_darwin_arm64.tar.gz"
-      sha256 "95b942f9a2235e60f67a5cd1f68fd13ebfb75dc41983eb77e21dede04c3c2366"
+      url "https://github.com/ellipse-software/bast/releases/download/v0.4.1/bast_0.4.1_darwin_arm64.tar.gz"
+      sha256 "be086828e5d709280975533b145ef3132421ead8716155aa8e4c4e6b3f66134c"
     end
     on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.4.0/bast_0.4.0_darwin_amd64.tar.gz"
-      sha256 "5b6f7c58ba6d18697ee7ba0bac07b2e4b8347018a9c0cfad37a90f03992cd71f"
+      url "https://github.com/ellipse-software/bast/releases/download/v0.4.1/bast_0.4.1_darwin_amd64.tar.gz"
+      sha256 "3e8d1099b046303fae367d45de62e553770fc0f43d175be8fd14c9f126ae8b2f"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.4.0/bast_0.4.0_linux_arm64.tar.gz"
-      sha256 "d5cda727ec73e07af4e0ac85fa80a343b78a7bf59ce5cd66114c012d65b0baca"
+      url "https://github.com/ellipse-software/bast/releases/download/v0.4.1/bast_0.4.1_linux_arm64.tar.gz"
+      sha256 "0c8d651fb34445e9070758e4d26616d0ab9e82518fac3a6bb9b601dc58b7d0db"
     end
     on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.4.0/bast_0.4.0_linux_amd64.tar.gz"
-      sha256 "7538160606fd0d66e7ae0e546df136680fc0d4490b3a1113ab09308330189daa"
+      url "https://github.com/ellipse-software/bast/releases/download/v0.4.1/bast_0.4.1_linux_amd64.tar.gz"
+      sha256 "74ff97ade3e3231c5908cb52ef7a6392cf9f6918aa79b4786d505a4f51141049"
     end
   end
 
