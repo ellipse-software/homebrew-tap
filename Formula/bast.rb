@@ -3,6 +3,7 @@ class Bast < Formula
   homepage "https://bast.sh"
   version "0.4.1"
   license "MIT"
+  conflicts_with "bast-nightly"
 
   on_macos do
     on_arm do
