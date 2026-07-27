@@ -1,30 +1,30 @@
 class BastNightly < Formula
   desc "Browse SSH hosts, manage keys, and connect from the terminal (nightly)"
   homepage "https://bast.sh"
-  version "nightly.20260726.6d31288"
+  version "nightly.20260727.a01cdce"
   license "MIT"
 
   conflicts_with "bast"
 
   on_macos do
     on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260726.6d31288_darwin_arm64.tar.gz"
-      sha256 "76c2db034b76f40376dd516991a3bcf876f99cb20bfca778c0fc791f332e22db"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260727.a01cdce_darwin_arm64.tar.gz"
+      sha256 "009299bf4e88e7abf125d0bbbe4156d845839cf4ed376d6ad4953f2d6ede9210"
     end
     on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260726.6d31288_darwin_amd64.tar.gz"
-      sha256 "25f553b2543b0337011d603af1c47988c093f1c58ba7501c633fad732156cf8e"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260727.a01cdce_darwin_amd64.tar.gz"
+      sha256 "f05362b215dc3ed77c7d0e7a8193c6e95f5fb3fd3be1dfa40ad41cdf5a9de2ea"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260726.6d31288_linux_arm64.tar.gz"
-      sha256 "1babd78d5b185894494aa9da54dee91f08e9b3202754fa445d75c68e198719ae"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260727.a01cdce_linux_arm64.tar.gz"
+      sha256 "17204bb55054ee6159f2237c4f77c9959bbd55dc616a06b994bed5c5961f0036"
     end
     on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260726.6d31288_linux_amd64.tar.gz"
-      sha256 "973498bbc4dc642822b064fee5a22b487790d32b84ca4365e91e1ba2ad78de9d"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260727.a01cdce_linux_amd64.tar.gz"
+      sha256 "61a47d147949db95b8451a6b11e37e9c9e571ae9e39236c2f1a114bc57394c60"
     end
   end
 
