@@ -1,30 +1,30 @@
 class BastNightly < Formula
   desc "Browse SSH hosts, manage keys, and connect from the terminal (nightly)"
   homepage "https://bast.sh"
-  version "nightly.20260728.7b4f20a"
+  version "nightly.20260728.f6a203e"
   license "MIT"
 
   conflicts_with "bast"
 
   on_macos do
     on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.7b4f20a_darwin_arm64.tar.gz"
-      sha256 "70a545932730c201f29dc690c9baf5f70c999aac894a732825da19ad879871ab"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.f6a203e_darwin_arm64.tar.gz"
+      sha256 "813f398a029c061b54b89a7c5c4b0cd8225d6978f896d63707f2cfcf501ea7af"
     end
     on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.7b4f20a_darwin_amd64.tar.gz"
-      sha256 "f8aa4344cff54a4cfcd5ddad4c7faae2fb76cd854a5fa5c9a2353828f69fa49e"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.f6a203e_darwin_amd64.tar.gz"
+      sha256 "7a307c3817c3d9544c9171c7b9870ddd1d04273c69010a2f0815d67a3f262c53"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.7b4f20a_linux_arm64.tar.gz"
-      sha256 "a63e57099a0d78d3437f4ff3b6ef7019afc125823493c7dbabc9a18046bd4eec"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.f6a203e_linux_arm64.tar.gz"
+      sha256 "88e1571dcf23550bf954c280aba3621ec05d4dda0eb6522267e88aa215504be8"
     end
     on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.7b4f20a_linux_amd64.tar.gz"
-      sha256 "c91c4a53b5e053ed3857b8c2f681c020b6455928aac66d300bc06687d7a76664"
+      url "https://github.com/ellipse-software/bast/releases/download/nightly/bast_nightly.20260728.f6a203e_linux_amd64.tar.gz"
+      sha256 "29f19364758ef8a12528fed4a4a2f7ef6d8da04bbc271af39bebb65b9384aeeb"
     end
   end
 
