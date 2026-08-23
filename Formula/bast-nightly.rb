@@ -1,38 +1,30 @@
 class BastNightly < Formula
   desc "Browse SSH hosts, manage keys, and connect from the terminal (nightly)"
   homepage "https://bast.sh"
+  url "https://github.com/ellipse-software/bast/archive/208d07040fae687d13115abad045115f8ca3baa2.tar.gz"
   version "nightly.20260819.208d070"
+  sha256 "e2d862563069b1a423ed12652be89992054e951ccf4b80318e86e28fb56261f5"
   license "MIT"
 
-  conflicts_with "bast"
+  depends_on "go" => :build
 
-  on_macos do
-    on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly.20260819.208d070/bast_nightly.20260819.208d070_darwin_arm64.tar.gz"
-      sha256 "72f2df15c28216eb9acb4f18b9f72ac1872092c828b84939a1ea38bc4141ba85"
-    end
-    on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly.20260819.208d070/bast_nightly.20260819.208d070_darwin_amd64.tar.gz"
-      sha256 "5af0c3e69a604f6e17febcad8ea137bdb52b152b1daec61aee612144acb40b0b"
-    end
-  end
-
-  on_linux do
-    on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly.20260819.208d070/bast_nightly.20260819.208d070_linux_arm64.tar.gz"
-      sha256 "94f6db1a59e832acfcf846b0a4399d3602ef6d67854f0d1b7a0d51149b8c5325"
-    end
-    on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/nightly.20260819.208d070/bast_nightly.20260819.208d070_linux_amd64.tar.gz"
-      sha256 "e73bb48bb8b87d831c5a9c32976bb3749d0c413d928825ed95adbadbfd29d25b"
-    end
-  end
+  conflicts_with "bast", because: "both install a `bast` binary"
 
   def install
-    bin.install "bast"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+    ]
+    cd "apps/bast" do
+      system "go", "build", *std_go_args(ldflags:)
+    end
   end
 
   test do
+    ENV["BAST_NO_TELEMETRY"] = "1"
     assert_match "bast #{version}", shell_output("#{bin}/bast --version")
+    assert_match "native SSH picker", shell_output("#{bin}/bast --help")
+    output = shell_output("#{bin}/bast --json hosts list")
+    assert_match '"ok":true', output
   end
 end

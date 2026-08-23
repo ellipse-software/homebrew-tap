@@ -1,38 +1,35 @@
 class Bast < Formula
   desc "Browse SSH hosts, manage keys, and connect from the terminal"
   homepage "https://bast.sh"
-  version "0.9.3"
+  url "https://github.com/ellipse-software/bast/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "428323d87fb9aeb503e2f752ae8e047c39b7f3b31e6a56f790381699a4adc6fd"
   license "MIT"
+  head "https://github.com/ellipse-software/bast.git", branch: "master"
 
-  conflicts_with "bast-nightly"
-
-  on_macos do
-    on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.9.3/bast_0.9.3_darwin_arm64.tar.gz"
-      sha256 "8a3c67ff8419c20160c17b2f90772bde1b78ef233d942d78de464a1ec3940fb8"
-    end
-    on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.9.3/bast_0.9.3_darwin_amd64.tar.gz"
-      sha256 "57ed767f3c73f18bd9d637e4339d22131bab2c5ad4ffd77ffd4c333c84252f7d"
-    end
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  on_linux do
-    on_arm do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.9.3/bast_0.9.3_linux_arm64.tar.gz"
-      sha256 "8dbe3864aedcbfbaadd6c0bffb6da7073350fa753944aa0665cd80cd7117b4a7"
-    end
-    on_intel do
-      url "https://github.com/ellipse-software/bast/releases/download/v0.9.3/bast_0.9.3_linux_amd64.tar.gz"
-      sha256 "143de5d733b034a9660be4f94385de50119d79913e7df3d5541ce1c6542ba667"
-    end
-  end
+  depends_on "go" => :build
+
+  conflicts_with "bast-nightly", because: "both install a `bast` binary"
 
   def install
-    bin.install "bast"
+    ldflags = %W[
+      -s -w
+      -X main.version=v#{version}
+    ]
+    cd "apps/bast" do
+      system "go", "build", *std_go_args(ldflags:)
+    end
   end
 
   test do
+    ENV["BAST_NO_TELEMETRY"] = "1"
     assert_match "bast v#{version}", shell_output("#{bin}/bast --version")
+    assert_match "native SSH picker", shell_output("#{bin}/bast --help")
+    output = shell_output("#{bin}/bast --json hosts list")
+    assert_match '"ok":true', output
   end
 end
