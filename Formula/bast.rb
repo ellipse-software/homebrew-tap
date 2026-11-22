@@ -1,8 +1,8 @@
 class Bast < Formula
   desc "Browse SSH hosts, manage keys, and connect from the terminal"
   homepage "https://bast.sh"
-  url "https://github.com/ellipse-software/bast/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "05650ecf6006ce330c2ace6ea7973750429239f3d35e74051f97b387ebf527d2"
+  url "https://github.com/ellipse-software/bast/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "def81788dc9f372eda91c213a4dc0f1a6f301817b6c759c3eb28cfbf4e8250a4"
   license "MIT"
   head "https://github.com/ellipse-software/bast.git", branch: "master"
 
